@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 /**
- * Пример применения класса Pairs
+ * Пример применения класса Pairs123
  *
  * @author Michael S. Kirkpatrick
  * @version V1, 8/2017
