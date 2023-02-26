@@ -24,8 +24,8 @@ public class PairsDriver {
         }
         System.out.println();
 
-//
-//        Iterator<Pair<String, Integer>> iterator = pairs.iterator();
+
+        Iterator<Pair<String, Integer>> iterator = pairs.iterator();
 //        while (iterator.hasNext()) {
 //            Pair<String, Integer> pair = iterator.next();
 //            /* Удалите любые с четным вторым значением */
