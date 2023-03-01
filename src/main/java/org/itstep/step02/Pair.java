@@ -1,9 +1,6 @@
 package org.itstep.step02;
 
-
-import java.util.Iterator;
-
-public class Pair<K, V extends Comparable> implements Iterable,Comparable <Pair> {
+public class Pair<K extends Comparable, V extends Comparable> implements Comparable<Pair<K, V>> {
 
     private final K first;
     private final V second;
@@ -27,12 +24,7 @@ public class Pair<K, V extends Comparable> implements Iterable,Comparable <Pair>
     }
 
     @Override
-    public Iterator iterator() {
-        return null;
-    }
-
-    @Override
-    public int compareTo(Pair o) {
-        return o.compareTo((Pair) this.getSecond());
+    public int compareTo(Pair<K, V> o) {
+        return this.getSecond().compareTo(o.getSecond());
     }
 }

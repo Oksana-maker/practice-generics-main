@@ -3,7 +3,9 @@ package org.itstep.step03;
 import org.itstep.step02.Pair;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Пример применения класса Pairs123
@@ -16,20 +18,26 @@ public class PairsDriver {
 
     public static void main(String[] args) {
         Pairs<String, Integer> pairs = new Pairs<String, Integer>();
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 10; i++) {
             pairs.addPair("A" + i, i);
         }
         for (Pair<String, Integer> pair : pairs) {
-            System.out.print(pair);
+            System.out.print(pair.toString());
         }
         System.out.println();
-
-
         Iterator<Pair<String, Integer>> iterator = pairs.iterator();
-//        while (iterator.hasNext()) {
+        while (iterator.hasNext()){
+            Pair<String,Integer>pair = iterator.next();
+            if((pair.getSecond()%2) ==0){
+//                iterator.remove();
+            }
+        }
+//
+//        Iterator<Pair<String, Integer>> iterator = pairs.iterator();
+//       while (iterator.hasNext()) {
 //            Pair<String, Integer> pair = iterator.next();
 //            /* Удалите любые с четным вторым значением */
-//                if ((pair.getSecond() % 2) == 0) {
+//                if ((pair.getSecond() % 5) == 0) {
 //                    iterator.remove();
 //                }
 //            }
@@ -37,11 +45,9 @@ public class PairsDriver {
 //            System.out.print(pair);
 //        }
 
-        }
-//
-//        /* Повторите еще раз и распечатайте оставшиеся */
+        /* Повторите еще раз и распечатайте оставшиеся */
 //        for (Pair<String, Integer> pair : pairs) {
-//            System.out.println(pair.toString());
+//            System.out.print(pair.toString());
 //        }
 //        System.out.println();
 //
@@ -49,9 +55,9 @@ public class PairsDriver {
 //        pairs.addPair("B", 10);
 //
 //        for (Pair<String, Integer> pair : pairs) {
-//            System.out.println(pair.toString());
+//            System.out.print(pair.toString());
 //        }
 //        System.out.println();
 
-    }
+    }}
 

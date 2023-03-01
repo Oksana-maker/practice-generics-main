@@ -5,37 +5,29 @@ import org.itstep.step02.Pair;
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class Pairs<K, V extends Comparable> implements Iterable<Pair<K, V>> {
+public class Pairs<K extends Comparable, V extends Comparable> implements Iterable<Pair<K, V>> {
     public static int id = 0;
-    Pair<K,V>[] pairs = new Pair[15];
+    Pair<K, V>[] pairs = new Pair[10];
 
     public Pairs() {
     }
 
-    public boolean addPair(K f, V s) {
-        boolean add = false;
-        if (id < pairs.length-1) {
-            pairs[id] = new Pair(f,s);
+    public void addPair(K f, V s) {
+        if (id < pairs.length) {
+            pairs[id] = new Pair<>(f, s);
             id++;
-            add = true;
         }
-        return add;
     }
 
-//    public boolean remove() {
-//        Pair<K, V>[] temps = new Pair[pairs.length - 1];
-//        for (int i = 0; i < pairs.length - 1; i++) {
-//            if (i < t) {
-//                temps[i] = pairs[i];
-//            } else if (i > t) {
-//                temps[i] = pairs[i + 1];
-//            }
-//        }
-//
-//    }
+    @Override
+    public String toString() {
+        return "Pairs{" +
+                "pairs=" + Arrays.toString(pairs) + '}';
+    }
 
     @Override
-    public Iterator<Pair<K, V>> iterator() {
+    public Iterator<Pair<K, V>> iterator
+            () {
         return new Iterator<Pair<K, V>>() {
             int i = 0;
 
@@ -44,44 +36,32 @@ public class Pairs<K, V extends Comparable> implements Iterable<Pair<K, V>> {
                 return i < pairs.length;
             }
 
+
             @Override
             public Pair<K, V> next() {
                 return (Pair<K, V>) pairs[i++];
             }
-        };
+//            @Override
+//            public void remove() {
+//
+//                for (int j = 0; j < pairs.length-1; j++) {
+//                    if (next().equals(pairs[i])) {
+//                        Pair[]p = new Pair[pairs.length-1];
+//                        pairs = Arrays.copyOf(pairs, pairs.length - 1);
+//                        System.arraycopy(pairs,0, p, 0, pairs.length-1);
+//
+//                    }
+//                }
+//
+//          }
+
+
+       };
+
+
     }
 
     public Pair<K, V> get(int i) {
         return (Pair<K, V>) pairs[i];
     }
-//    @Override
-//    public void remove() {
-//        throw new UnsupportedOperationException();
-//    }
-    @Override
-    public String toString() {
-        return "";
-    }
-
 }
-
-
-//    @Override
-//    public Iterator<Pair<K, V>> iterator() {
-//        return new PairIterator();
-//    }
-//
-//    /*
-//     * TODO: Реализуйте итератор здесь на основе документации API по адресу
-//     * https://docs.oracle.com/javase/10/docs/api/java/util/Iterator.html Throw the exceptions as
-//     * specified
-//
-//        /**
-//         * TODO: Удалите предыдущую пару, возвращенную функцией next()
-//         */
-//        @Override
-//        public void remove() {
-//            throw new UnsupportedOperationException();
-//        }
-//    }
-//}
